@@ -1,6 +1,6 @@
 const Express = require("express");
 const app = Express();
-const domain = "factorio-proxy-grenudi.c9users.io";
+const domain = "ddns-factorio.herokuapp.com";
 const port = 8080;
 let IP;
 
