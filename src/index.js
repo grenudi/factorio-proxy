@@ -33,15 +33,7 @@ app.get("",(req,res)=>{
     }
 });
 
-
 app.get("/peeling",(req,res)=>{
-        let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-        
-        res.send(`Your IP: ${ip}`);
-        res.end();
-    });
-    
-app.post("/peeling",(req,res)=>{
         let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
         console.log("peeling recieved from:",ip);
         
