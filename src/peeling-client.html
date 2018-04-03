@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PEELING</title>
+</head>
+<body>
+    <script>
+        setInterval(()=>{
+            fetch("https://ddns-factorio.herokuapp.com/peeling?secret=radikloh")
+            .then(function(response) {
+              document.write("Peeling...");
+            }).catch(function(err) {
+                console.log(err);
+                document.write("Peeling FAILED");
+            });
+        },10000);
+    </script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 const Express = require("express");
 const app = Express();
+const cors = require("cors");
 
 const config = {
     heroku: {
@@ -15,6 +16,7 @@ const domain = env.domain;
 
 let IP;
 
+app.use(cors());
 //Looper path if no IP to redirect to , a client will wait untill it will appear
 app.get("",(req,res)=>{
     if(!IP){
