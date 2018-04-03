@@ -7,16 +7,39 @@
     <title>PEELING</title>
 </head>
 <body>
-    <script>
+        <div id="state">
+        peeling initiation
+    </div>
+        <p>Change peeling interval: <span id="interval">10000</span></p>
+    <div>
+        <input id="setInterval" type="text" name="interval"/>
+    </div>
+    
+    <script onload>
+        let interval = 10000;
+        let domain = "ddns-factorio.herokuapp.com";
+        
+        // Get the input field
+        var inputInterval = document.getElementById("setInterval");
+         
+        inputInterval.addEventListener("keyup", function(event) {
+          event.preventDefault();
+          if (event.keyCode === 13) {
+            console.log(event.target)
+            interval = event.target;
+            document.getElementById("interval").textContent = time;
+          }
+        });
+        
         setInterval(()=>{
-            fetch("https://ddns-factorio.herokuapp.com/peeling?secret=radikloh")
+            fetch(`https://${domain}/peeling?secret=radikloh`)
             .then(function(response) {
-              document.write("Peeling...");
+                document.getElementById("state").textContent = "Peeling...";
             }).catch(function(err) {
                 console.log(err);
-                document.write("Peeling FAILED");
+                document.getElementById("state").textContent = "Peeling Failed";
             });
-        },10000);
+        },interval);
     </script>
 </body>
 </html>
